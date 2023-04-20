@@ -1,0 +1,14 @@
+ignore-empty-password
+show-failed-attempts
+image=/home/jcarryer/wallpapers/red-atmo.jpg
+indicator-caps-lock
+font=JetBrainsMono Nerd Font
+font-size=20
+indicator-idle-visible
+inside-color=1f1f28e6
+inside-caps-lock-color=ff9e3bff
+inside-ver-color=7e9cd8ff
+inside-wrong-color=c34043
+text-color=dcd7baff
+key-hl-color=98bb6cff
+line-uses-inside

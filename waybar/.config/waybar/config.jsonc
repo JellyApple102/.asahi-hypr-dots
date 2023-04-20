@@ -1,0 +1,70 @@
+{
+    "layer": "top",
+    "margin-top": 20,
+    "margin-left": 20,
+    "margin-right": 20,
+    "spacing": 10,
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/screen-brightness", "custom/kb-backlight", "cpu", "wireplumber", "network", "battery"],
+    "wlr/workspaces": {
+        "on-click": "activate"
+    },
+    "custom/screen-brightness": {
+        "exec": "~/.config/waybar/custom/screen-brightness.sh",
+        "format": "{}% 󰃠 ",
+    },
+    "custom/kb-backlight": {
+        "exec": "~/.config/waybar/custom/kb-backlight.sh",
+        "format": "{}% 󰥻 ",
+    },
+    "cpu": {
+        "format": "{usage}% 󰘚 "
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "󰝟 ",
+        "format-icons": ["󰕿 ", "󰖀 ", "󰕾 "]
+    },
+    "network": {
+        "format-disconnected": "󰖪 ",
+        "format-wifi": "{signalStrength}% 󰖩 ",
+        "format-ethernet": "󰈀 ",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-wifi": "{essid}",
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon}",
+        "format-icons": {
+            "default": ["󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
+            "charging": ["󰢜 ", "󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "]
+        }
+    },
+    "clock": {
+        "format": "{:%I:%M%p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#DCA561'><b>{}</b></span>",
+                "days": "<span color='#C8C093'><b>{}</b></span>",
+                "weeks": "<span color='#7E9CD8'><b>W{}</b></span>",
+                "weekdays": "<span color='#FF9E3B'><b>{}</b></span>",
+                "today": "<span color='#FF5D62'><b><u>{}</u></b></span>",
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-foreward": "shift_up",
+            "on-click-backward": "shift_down"
+        }
+    }
+}

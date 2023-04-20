@@ -1,0 +1,51 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: rgba(31, 31, 40, 1);
+    color: rgba(220, 215, 186, 1);
+    border-radius: 15px;
+}
+
+button {
+    border: none;
+    border-radius: 15px;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+button:hover {
+    background: inherit;
+    text-shadow: none;
+    box-shadow: 0 0 0 2px rgba(54, 54, 70, 1) inset;
+}
+
+#workspaces button {
+    color: rgba(220, 215, 186, 1);
+}
+
+#workspaces button.active {
+    background-color: rgba(42, 42, 55, 1);
+}
+
+#battery {
+    margin-right: 10px;
+}
+
+#battery.warning {
+    color: rgba(255, 158, 59, 1);
+}
+
+#battery.critical {
+    color: rgba(195, 64, 67, 1);
+}
+
+#battery.charging {
+    color: rgba(157, 187, 108, 1);
+}
+
+tooltip {
+    background: rgba(22, 22, 29, 0.95);
+}
