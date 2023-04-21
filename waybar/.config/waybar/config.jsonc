@@ -3,35 +3,75 @@
     "margin-top": 20,
     "margin-left": 20,
     "margin-right": 20,
-    "spacing": 10,
+    "spacing": 0,
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/screen-brightness", "custom/kb-backlight", "cpu", "wireplumber", "network", "battery"],
+    "modules-right": ["idle_inhibitor", "custom/screen-brightness", "custom/kb-backlight", "custom/divider", "bluetooth", "wireplumber", "network", "battery"],
     "wlr/workspaces": {
         "on-click": "activate"
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
     "custom/screen-brightness": {
         "exec": "~/.config/waybar/custom/screen-brightness.sh",
-        "format": "{}% 󰃠 ",
+        "return-type": "json",
+        "format": "{percentage}% 󰃠 ",
+        "tooltip-format": "{tooltip}",
+        /* invert the natural scrolling */
+        "on-scroll-down": "brightnessctl set 10%+",
+        "on-scroll-up": "brightnessctl set 10%-",
+        "smooth-scrolling-threshold": 5
     },
     "custom/kb-backlight": {
         "exec": "~/.config/waybar/custom/kb-backlight.sh",
-        "format": "{}% 󰥻 ",
+        "return-type": "json",
+        "format": "{percentage}% 󰥻 ",
+        "tooltip-format": "{tooltip}",
+        /* invert the natural scrolling */
+        "on-scroll-down": "brightnessctl -d kbd_backlight set 10%+",
+        "on-scroll-up": "brightnessctl -d kbd_backlight set 10%-",
+        "smooth-scrolling-threshold": 5
     },
-    "cpu": {
-        "format": "{usage}% 󰘚 "
+    "custom/divider": {
+        "format": "󰇙",
+        "tooltip": false
+    },
+    "bluetooth": {
+        "format-on": "󰂯 ",
+        "format-off": "󰂲 ",
+        "format-disabled": "󰂲 ",
+        "format-connected": "{num_connections} 󰂯 ",
+        "tooltip-format-on": "On",
+        "tooltip-format-off": "Off",
+        "tooltip-format-disabled": "Disabled",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}%"
     },
     "wireplumber": {
         "format": "{volume}% {icon}",
         "format-muted": "󰝟 ",
-        "format-icons": ["󰕿 ", "󰖀 ", "󰕾 "]
+        "format-icons": ["󰕿 ", "󰖀 ", "󰕾 "],
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "alacritty --class floating -e pulsemixer",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-",
+        "smooth-scrolling-threshold": 5
     },
     "network": {
-        "format-disconnected": "󰖪 ",
-        "format-wifi": "{signalStrength}% 󰖩 ",
+        "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+        "format-disconnected": "󰤮 ",
+        "format-wifi": "{icon}",
         "format-ethernet": "󰈀 ",
         "tooltip-format-disconnected": "Disconnected",
         "tooltip-format-wifi": "{essid}",
+        "tooltip-format-ethernet": "{essid}",
+        "on-click-right": "alacritty --class floating -e nmtui"
     },
     "battery": {
         "states": {
@@ -41,8 +81,8 @@
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% {icon}",
         "format-icons": {
-            "default": ["󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
-            "charging": ["󰢜 ", "󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "]
+            "default": ["󰂎 ", "󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
+            "charging": ["󰢟 ", "󰢜 ", "󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "]
         }
     },
     "clock": {

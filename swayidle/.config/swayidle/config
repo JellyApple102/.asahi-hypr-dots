@@ -1,0 +1,3 @@
+timeout 600 'swaylock -f'
+timeout 660 'hyprctl dispatch dpms off && brightnessctl -s -d kbd_backlight set 0%' resume 'hyprctl dispatch dpms on && brightnessctl -r -d kbd_backlight'
+before-sleep 'swaylock -f'

@@ -30,8 +30,64 @@ button:hover {
     background-color: rgba(42, 42, 55, 1);
 }
 
+#idle_inhibitor {
+    background-color: rgba(42, 42, 55, 1);
+    padding: 0px 5px 0px 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#idle_inhibitor.activated {
+    color: rgba(255, 158, 59, 1);
+}
+
+#custom-screen-brightness {
+    background-color: rgba(42, 42, 55, 1);
+    padding: 0px 5px 0px 5px;
+}
+
+#custom-kb-backlight {
+    background-color: rgba(42, 42, 55, 1);
+    padding: 0px 10px 0px 5px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#custom-divider {
+    color: rgba(84, 84, 109, 1);
+    padding: 0px 10px 0px 10px;
+}
+
+#bluetooth {
+    background-color: rgba(42, 42, 55, 1);
+    padding: 0px 5px 0px 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#wireplumber {
+    background-color: rgba(42, 42, 55, 1);
+    padding: 0px 5px 0px 5px;
+}
+
+#wireplumber.muted {
+    color: rgba(195, 64, 67, 1);
+}
+
+#network {
+    background-color: rgba(42, 42, 55, 1);
+    padding: 0px 5px 0px 5px;
+}
+
+#network.disconnected {
+    color: rgba(195, 64, 67, 1);
+}
+
 #battery {
-    margin-right: 10px;
+    padding: 0px 10px 0px 5px;
+    background-color: rgba(42, 42, 55, 1);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #battery.warning {
