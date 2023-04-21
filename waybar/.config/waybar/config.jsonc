@@ -51,7 +51,8 @@
         "tooltip-format-disabled": "Disabled",
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}%"
+        "tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}%",
+        "on-click": "alacritty --class floating -e bluetoothctl"
     },
     "wireplumber": {
         "format": "{volume}% {icon}",
