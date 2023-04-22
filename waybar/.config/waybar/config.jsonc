@@ -6,7 +6,15 @@
     "spacing": 0,
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "custom/screen-brightness", "custom/kb-backlight", "custom/divider", "bluetooth", "wireplumber", "network", "battery"],
+    "modules-right": ["idle_inhibitor",
+        "custom/screen-brightness",
+        "custom/kb-backlight",
+        "custom/divider",
+        "bluetooth",
+        "wireplumber",
+        "network",
+        "battery"
+    ],
     "wlr/workspaces": {
         "on-click": "activate"
     },
